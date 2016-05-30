@@ -1,4 +1,8 @@
 import {Component} from "@angular/core";
+import {RouteConfig} from "@angular/router-deprecated";
+import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
+import {LandingPage} from "./pages/landing/landing.component";
+import {HTTP_PROVIDERS} from "@angular/http";
 
 @Component({
     selector: "my-app",
