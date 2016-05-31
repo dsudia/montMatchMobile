@@ -1,8 +1,9 @@
-import {Component, ElementRef, ViewChild} from "@angular/core";
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
 import {Page} from "ui/page";
 import {View} from "ui/core/view";
 import {TextField} from "ui/text-field";
 import {Router} from "@angular/router-deprecated";
+import * as applicationSettings from "application-settings";
 
 @Component({
     selector: "landing",
@@ -12,14 +13,23 @@ import {Router} from "@angular/router-deprecated";
 
 export class LandingPage {
     @ViewChild("container") container: ElementRef;
-    
-    constructor(private _router:Router, private page: Page) {
+
+    // public credential: boolean;
+
+    // ngOnInit() {
+    //     this.credential = applicationSettings.hasKey("user");
+    //     if(this.credential === false) {
+    //         this._router.navigate(["/Login"])
+    //     }
+    // }
+
+    constructor(private _router: Router, private page: Page) {
     }
-    
+
     goToLogin() {
         this._router.navigate(["/Login"])
     }
-    
+
     goToSchoolInfo() {
         this._router.navigate(["/SchoolInfo"])
     }
