@@ -15,4 +15,8 @@ export class LandingPage {
     
     constructor(private _router:Router, private page: Page) {
     }
+    
+    goToLogin() {
+        this._router.navigate(["/Login"])
+    }
 }
