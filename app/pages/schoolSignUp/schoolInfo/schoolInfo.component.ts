@@ -5,22 +5,15 @@ import {TextField} from "ui/text-field";
 import {Router} from "@angular/router-deprecated";
 
 @Component({
-    selector: "landing",
-    templateUrl: "pages/landing/landing.html",
-    styleUrls: ["pages/landing/landing.common.css", "pages/landing/landing.css"]
+    selector: "schoolInfo",
+    templateUrl: "pages/schoolSignUp/schoolInfo/schoolInfo.html",
+    styleUrls: ["pages/schoolSignUp/schoolInfo/schoolInfo.common.css", "pages/schoolSignUp/schoolInfo/schoolInfo.css"]
 })
 
-export class LandingPage {
+export class SchoolInfo {
     @ViewChild("container") container: ElementRef;
     
     constructor(private _router:Router, private page: Page) {
     }
     
-    goToLogin() {
-        this._router.navigate(["/Login"])
-    }
-    
-    goToSchoolInfo() {
-        this._router.navigate(["/SchoolInfo"])
-    }
 }
