@@ -5,15 +5,8 @@ import {TextField} from "ui/text-field";
 import {Router} from "@angular/router-deprecated";
 
 @Component({
-    selector: "schoolInfo",
+    selector: "signUpOne",
     templateUrl: "pages/schoolSignUp/schoolInfo/schoolInfo.html",
     styleUrls: ["pages/schoolSignUp/schoolInfo/schoolInfo.common.css", "pages/schoolSignUp/schoolInfo/schoolInfo.css"]
 })
 
-export class SchoolInfo {
-    @ViewChild("container") container: ElementRef;
-    
-    constructor(private _router:Router, private page: Page) {
-    }
-    
-}

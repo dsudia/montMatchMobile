@@ -3,7 +3,8 @@ import {RouteConfig} from "@angular/router-deprecated";
 import {NS_ROUTER_DIRECTIVES, NS_ROUTER_PROVIDERS} from "nativescript-angular/router";
 import {LandingPage} from "./pages/landing/landing.component";
 import {LoginPage} from "./pages/login/login.component";
-import {SchoolInfo} from "./pages/schoolSignUp/schoolInfo/schoolInfo.component";
+import {SchoolInfo} from "./pages/signUp/schoolInfo/schoolInfo.component";
+import {SignUpOne} from "./pages/signUp/signUpOne/signUpOne.component";
 
 @Component({
     selector: "main",
@@ -14,6 +15,7 @@ import {SchoolInfo} from "./pages/schoolSignUp/schoolInfo/schoolInfo.component";
 @RouteConfig([
     { path: "/Landing", component: LandingPage, name: "Landing", useAsDefault: true},
     { path: "/Login", component: LoginPage, name: "Login" },
-    { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" }
+    { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
+    { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"}
 ])
 export class AppComponent {}
