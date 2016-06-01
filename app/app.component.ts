@@ -5,6 +5,8 @@ import {LandingPage} from "./pages/landing/landing.component";
 import {LoginPage} from "./pages/login/login.component";
 import {SchoolInfo} from "./pages/signUp/schoolInfo/schoolInfo.component";
 import {SignUpOne} from "./pages/signUp/signUpOne/signUpOne.component";
+import {MatchProfInfo} from "./pages/matchingProfile/matchProfInfo/matchProfInfo.component";
+import {MatchProfOne} from "./pages/matchingProfile/matchProfOne/matchProfOne.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
 
@@ -15,9 +17,11 @@ import {UserService} from "./shared/User/userService";
     template: "<page-router-outlet></page-router-outlet>"
 })
 @RouteConfig([
-    { path: "/Landing", component: LandingPage, name: "Landing", useAsDefault: true},
+    { path: "/Landing", component: LandingPage, name: "Landing"}, // useAsDefault: true//
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
-    { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"}
+    { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"},
+    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo", useAsDefault: true},
+    { path: "/MatchProfOne", component: MatchProfOne, name: "MatchProfOne"}
 ])
 export class AppComponent {}

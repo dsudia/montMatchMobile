@@ -1,0 +1,4 @@
+<StackLayout #container>
+    <Label text="Type of School"></Label>
+    <ListPicker #orgTypesPicker class="picker" [items]="orgTypesItems" [orgTypesSelectedIndex]="orgTypesSelectedIndex" verticalAlignment="center" horizontalAlignment="center" (orgTypesSelectedIndexChange)="orgTypesSelectedIndexChanged(orgTypesPicker)"></ListPicker>
+</StackLayout>
