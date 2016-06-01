@@ -13,6 +13,7 @@ import {MatchProfFour} from "./pages/matchingProfile/matchProfFour/matchProfFour
 import {MatchProfFive} from "./pages/matchingProfile/matchProfFive/matchProfFive.component";
 import {MatchProfSix} from "./pages/matchingProfile/matchProfSix/matchProfSix.component";
 import {MatchProfSeven} from "./pages/matchingProfile/matchProfSeven/matchProfSeven.component";
+import {MatchProfEight} from "./pages/matchingProfile/matchProfEight/matchProfEight.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
 
@@ -35,5 +36,6 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfFive", component: MatchProfFive, name: "MatchProfFive"},
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
+    { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
 ])
 export class AppComponent {}

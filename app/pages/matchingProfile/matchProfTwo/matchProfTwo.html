@@ -3,4 +3,5 @@
     <ListPicker #calsPicker class="picker" [items]="calsItems" (selectedIndexChange)="calsSelectedIndexChanged(calsPicker)"></ListPicker>
     <Label text="Importance"></Label>
     <ListPicker #calsWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="calsSelectedIndexChanged(calsWgtPicker)"></ListPicker>
+    <Button text="Next" (tap)="goToMatchProfThree()"></Button>
 </StackLayout>

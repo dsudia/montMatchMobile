@@ -7,18 +7,16 @@ import {User} from "../../../shared/User/user";
 import {UserService} from "../../../shared/User/userService";
 
 @Component({
-    selector: "matchProfFour",
-    templateUrl: "pages/matchingProfile/matchProfFour/matchProfFour.html",
-    styleUrls: ["pages/matchingProfile/matchProfFour/matchProfFour-common.css", "pages/matchingProfile/matchProfFour/matchProfFour.css"]
+    selector: "matchProfEight",
+    templateUrl: "pages/matchingProfile/matchProfEight/matchProfEight.html",
+    styleUrls: ["pages/matchingProfile/matchProfEight/matchProfEight-common.css", "pages/matchingProfile/matchProfEight/matchProfEight.css"]
 })
 
-export class MatchProfFour {
+export class MatchProfEight {
     @ViewChild("container") container: ElementRef;
     
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
     }
-    
-    sizesItems: string[] = ["<4 classrooms", "4-9 classrooms", "10-19 classrooms", ">20 classrooms"];
     
     importanceItems: string[] = ["Not Important", "Somewhat Important", "Important", "Extremely Important"];
     
@@ -31,16 +29,4 @@ export class MatchProfFour {
         this.importanceMap.set(3, 100);
     }
     
-    sizesSelectedIndexChanged(sizesPicker) {
-        this._userService.user.matchingProfile.cals.shift();
-        this._userService.user.matchingProfile.cals.push(sizesPicker.selectedIndex);
-    }
-    
-    sizesWgtSelectedIndexChanged(sizesWgtPicker) {
-        this._userService.user.matchingProfile.sizesWgt = <number> this.importanceMap.get(sizesWgtPicker.selectedIndex);
-    }
-    
-    goToMatchProfFive() {
-        this._router.navigate(["/MatchProfFive"])
-    }
 }

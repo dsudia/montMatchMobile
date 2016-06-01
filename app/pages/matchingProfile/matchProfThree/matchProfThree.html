@@ -1,0 +1,7 @@
+<StackLayout #container>
+    <Label text="State"></Label>
+    <ListPicker #statesPicker class="picker" [items]="statesItems" (selectedIndexChange)="statesSelectedIndexChanged(statesPicker)"></ListPicker>
+    <Label text="Importance"></Label>
+    <ListPicker #statesWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="statesSelectedIndexChanged(statesWgtPicker)"></ListPicker>
+    <Button text="Next" (tap)="goToMatchProfFour()"></Button>
+</StackLayout>

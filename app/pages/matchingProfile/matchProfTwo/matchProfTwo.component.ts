@@ -41,4 +41,8 @@ export class MatchProfTwo {
     calsWgtSelectedIndexChanged(calsWgtPicker) {
         this._userService.user.matchingProfile.calsWgt = <number> this.importanceMap.get(calsWgtPicker.selectedIndex);
     }
+    
+    goToMatchProfThree() {
+        this._router.navigate(["/MatchProfThree"])
+    }
 }
