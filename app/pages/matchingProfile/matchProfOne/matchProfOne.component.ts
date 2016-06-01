@@ -19,14 +19,28 @@ export class MatchProfOne {
     }
     
     orgTypesItems: string[] = ["Public District", "Public Magnet", "Public Charter", "Public Innovation", "Private For-Profit, Single Owner", "Private For-Profit, Corporate Owner", "Private Non-Profit"];
-
-    calsItems: string[] = ["Traditional", "Year-Round"];
     
-    statesItems: string[] = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"];
+    importanceItems: string[] = ["Not Important", "Somewhat Important", "Important", "Extremely Important"];
+    
+    importanceMap = new Map()
+    
+    ngOnInit() {
+        this.importanceMap.set(0, 1);
+        this.importanceMap.set(1, 10);
+        this.importanceMap.set(2, 50);
+        this.importanceMap.set(3, 100);
+    }
     
     orgTypesSelectedIndexChanged(orgTypesPicker) {
-        console.log(orgTypesPicker.selectedIndex);
         this._userService.user.matchingProfile.orgTypes.shift();
-        this._userService.user.matchingProfile.orgTypes.push(orgTypesPicker.selectedIndex));
+        this._userService.user.matchingProfile.orgTypes.push(orgTypesPicker.selectedIndex);
+    }
+    
+    orgTypesWgtSelectedIndexChanged(orgTypesWgtPicker) {
+        this._userService.user.matchingProfile.orgTypesWgt = <number> this.importanceMap.get(orgTypesWgtPicker.selectedIndex);
+    }
+    
+    goToMatchProfTwo() {
+        this._router.navigate(["/MatchProfTwo"]);
     }
 }

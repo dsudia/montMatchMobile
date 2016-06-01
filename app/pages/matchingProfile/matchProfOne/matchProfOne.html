@@ -1,4 +1,7 @@
 <StackLayout #container>
     <Label text="Type of School"></Label>
-    <ListPicker #orgTypesPicker class="picker" [items]="orgTypesItems" verticalAlignment="center" horizontalAlignment="center" (selectedIndexChange)="orgTypesSelectedIndexChanged(orgTypesPicker)"></ListPicker>
+    <ListPicker #orgTypesPicker class="picker" [items]="orgTypesItems" (selectedIndexChange)="orgTypesSelectedIndexChanged(orgTypesPicker)"></ListPicker>
+    <Label text="Importance"></Label>
+    <ListPicker #orgTypesWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="orgTypesWgtSelectedIndexChanged(orgTypesWgtPicker)"></ListPicker>
+    <Button text="Next" (tap)="goToMatchProfTwo()"></Button>
 </StackLayout>

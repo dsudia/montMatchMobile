@@ -1,0 +1,6 @@
+<StackLayout #container>
+    <Label text="Calendar"></Label>
+    <ListPicker #calsPicker class="picker" [items]="calsItems" (selectedIndexChange)="calsSelectedIndexChanged(calsPicker)"></ListPicker>
+    <Label text="Importance"></Label>
+    <ListPicker #calsWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="calsSelectedIndexChanged(calsWgtPicker)"></ListPicker>
+</StackLayout>
