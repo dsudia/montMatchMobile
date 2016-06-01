@@ -7,7 +7,7 @@ import {Router} from "@angular/router-deprecated";
 @Component({
     selector: "login",
     templateUrl: "pages/login/login.html",
-    styleUrls: ["pages/login/login.common.css", "pages/login/login.css"]
+    styleUrls: ["pages/login/login-common.css", "pages/login/login.css"]
 })
 
 export class LoginPage {

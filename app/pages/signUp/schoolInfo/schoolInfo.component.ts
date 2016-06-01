@@ -7,7 +7,7 @@ import {Router} from "@angular/router-deprecated";
 @Component({
     selector: "schoolInfo",
     templateUrl: "pages/signUp/schoolInfo/schoolInfo.html",
-    styleUrls: ["pages/signUp/schoolInfo/schoolInfo.common.css", "pages/signUp/schoolInfo/schoolInfo.css"]
+    styleUrls: ["pages/signUp/schoolInfo/schoolInfo-common.css", "pages/signUp/schoolInfo/schoolInfo.css"]
 })
 
 export class SchoolInfo {

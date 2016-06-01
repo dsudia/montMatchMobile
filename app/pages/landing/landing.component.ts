@@ -8,7 +8,7 @@ import * as applicationSettings from "application-settings";
 @Component({
     selector: "landing",
     templateUrl: "pages/landing/landing.html",
-    styleUrls: ["pages/landing/landing.common.css", "pages/landing/landing.css"]
+    styleUrls: ["pages/landing/landing-common.css", "pages/landing/landing.css"]
 })
 
 export class LandingPage {
