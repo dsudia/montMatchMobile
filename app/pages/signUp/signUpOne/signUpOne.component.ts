@@ -13,10 +13,33 @@ import {UserService} from "../../../shared/User/userService";
 })
 
 export class SignUpOne {
-    user: User;
     @ViewChild("container") conatiner: ElementRef;
     
     constructor(private _router: Router, private page: Page, private _userService: UserService) {
-        this.user = _userService.user;
+    }
+    
+    register() {
+        if (!this._userService.user.isValidEmail()) {
+            alert("Please enter a valid email");
+            return;
+        }
+        if (!this._userService.user.isValidPassword()) {
+            alert("Please enter a password that is at least 8 characters long, and contains one uppercase, one lowercase, one number and one special character.")
+            return;
+        }
+        if (this._userService.user.password !== this._userService.user.confPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+        if (this._userService.user.displayName === "" || this._userService.user.displayName === undefined) {
+            alert("Please enter a school name.");
+            return;
+        }
+        this._userService.register()
+        .subscribe((res) => {
+            console.log(res.body);
+            alert("Your account was successfully created!");
+            this._router.navigate(["/SchoolInfo"]);
+        })
     }
 }

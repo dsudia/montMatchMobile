@@ -1,9 +1,9 @@
 <StackLayout #container>
     <Label text="Let's start with some basic information."></Label>
-    <TextField #email hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="userService.user.email"></TextField>
+    <TextField #email hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="_userService.user.email"></TextField>
     <Label text="At least eight characters, one uppercase, one lowercase, one special character, one number."></Label>
-    <TextField #password hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
-    <TextField #confPassword hint="Enter Password Again" secure="true" [(ngModel)]="user.confPassword"></TextField>
-    <TextField #displayName hint="Name of School" autocorrect="false" [(ngModel)]="user.displayName"></TextField>
-    <Button text="Log In" class="submit-button"></Button>
+    <TextField #password hint="Password" secure="true" [(ngModel)]="_userService.user.password"></TextField>
+    <TextField #confPassword hint="Enter Password Again" secure="true" [(ngModel)]="_userService.user.confPassword"></TextField>
+    <TextField #displayName hint="Name of School" autocorrect="false" [(ngModel)]="_userService.user.displayName"></TextField>
+    <Button text="Log In" class="submit-button" (tap)="register()"></Button>
 </StackLayout>
