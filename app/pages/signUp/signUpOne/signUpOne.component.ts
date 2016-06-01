@@ -36,10 +36,12 @@ export class SignUpOne {
             return;
         }
         this._userService.register()
-        .subscribe((res) => {
-            console.log(res.body);
-            alert("Your account was successfully created!");
+        .map(res => res.json())
+        .subscribe(body => {
+            console.log('----------- Res ---------', body);
             this._router.navigate(["/SchoolInfo"]);
+        }, error => {
+            alert(error._body.message);
         })
     }
 }

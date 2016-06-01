@@ -1,10 +1,17 @@
 var validator = require("email-validator");
 
 export class User {
+    token: string;
+    // Original Sign Up
     email: string;
     password: string;
     confPassword: string;
     displayName: string;
+    // Rest of the profile
+    image: string;
+    state: string;
+    description: string;
+    matchProfile: Object;
     isValidEmail() {
         return validator.validate(this.email);
     }
