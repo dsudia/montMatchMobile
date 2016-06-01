@@ -3,6 +3,7 @@ import {Page} from "ui/page";
 import {View} from "ui/core/view";
 import {TextField} from "ui/text-field";
 import {Router} from "@angular/router-deprecated";
+import {User} from "../../../shared/User/user";
 
 @Component({
     selector: "signUpOne",
@@ -11,9 +12,13 @@ import {Router} from "@angular/router-deprecated";
 })
 
 export class SignUpOne {
+    user: User;
+    confPassword: string;
+    
     @ViewChild("container") container: ElementRef;
     
     constructor(private _router:Router, private page: Page) {
+        this.user = new User();
     }
     
 }

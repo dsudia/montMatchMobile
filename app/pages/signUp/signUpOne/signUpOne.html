@@ -2,7 +2,7 @@
     <Label text="Let's start with some basic information."></Label>
     <TextField #email hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email"></TextField>
     <TextField #password hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
-    <TextField #confPassword hint="Enter Password Again" secure="true"></TextField>
+    <TextField #confPassword hint="Enter Password Again" secure="true" [(ngModel)]="confPassword"></TextField>
     <TextField #displayName hint="Name of School" autocorrect="false" [(ngModel)]="user.displayName"></TextField>
     <Button text="Log In" class="submit-button"></Button>
 </StackLayout>
