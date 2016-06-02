@@ -1,4 +1,4 @@
-<GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto" columns="*, auto" #container>
+<GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" columns="*, auto" #container>
     <Label row="0" , col="0" text="Age Bands"></Label>
 
     <Label row="1" col="0" text="0-3"></Label>
@@ -19,5 +19,8 @@
     <Label row="6" col="0" text="3-6"></Label>
     <Switch checked="{{ fifteenToEighteen }}" row="6" col="1" (tap)="fifteenToEighteenChange()"></Switch>
 
-    <Button text="Next" row="7" col="0" (tap)="goToMatchProfSeven()"></Button>
+    <Label row="7" col="0" text="Importance"></Label>
+    <ListPicker row="8" col="0" #ageRangesWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="ageRangesSelectedIndexChanged(ageRangesWgtPicker)"></ListPicker>
+
+    <Button text="Next" row="9" col="0" (tap)="goToMatchProfSeven()"></Button>
 </GridLayout>

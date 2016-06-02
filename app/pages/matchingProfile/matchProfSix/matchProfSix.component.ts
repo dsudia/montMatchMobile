@@ -124,6 +124,10 @@ export class MatchProfSix {
         }
     }
     
+    ageRangesWgtSelectedIndexChanged(ageRangesWgtPicker) {
+        this._userService.user.matchingProfile.ageRangesWgt = <number> this.importanceMap.get(ageRangesWgtPicker.selectedIndex);
+    }
+    
     goToMatchProfSeven() {
         this._router.navigate(["/MatchProfSeven"])
     }
