@@ -1,0 +1,8 @@
+<StackLayout>
+    <Label text="What state is your school in?"></Label>
+    <TextField #state hint="State" keyboardType="text" autocorrect="false" autocapitalizationType="allCharacters" [(ngModel)]="_userService.user.state"></TextField>
+    <Label text="Upload a picture"></Label>
+    <!--<Image id="profileImage">-->
+    <Button text="Upload Images" class="submit-button" (tap)="upload()"></Button>
+    <Button text="Next" class="submit-button" (tap)="next()"></Button>
+</StackLayout>

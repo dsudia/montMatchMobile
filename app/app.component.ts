@@ -5,6 +5,7 @@ import {LandingPage} from "./pages/landing/landing.component";
 import {LoginPage} from "./pages/login/login.component";
 import {SchoolInfo} from "./pages/signUp/schoolInfo/schoolInfo.component";
 import {SignUpOne} from "./pages/signUp/signUpOne/signUpOne.component";
+import {StateAndPicture} from "./pages/signUp/stateAndPicture/stateAndPicture.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
 
@@ -15,9 +16,10 @@ import {UserService} from "./shared/User/userService";
     template: "<page-router-outlet></page-router-outlet>"
 })
 @RouteConfig([
-    { path: "/Landing", component: LandingPage, name: "Landing", useAsDefault: true},
+    { path: "/Landing", component: LandingPage, name: "Landing"},
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
-    { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"}
+    { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"},
+    { path: "/StateAndPicture", component: StateAndPicture, name: "StateAndPicture", useAsDefault: true}
 ])
 export class AppComponent {}

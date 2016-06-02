@@ -38,7 +38,7 @@ export class SignUpOne {
         this._userService.register()
         .map(res => res.json())
         .subscribe(body => {
-            console.log('----------- Res ---------', body);
+            this._userService.user.token = body.token;
             this._router.navigate(["/SchoolInfo"]);
         }, error => {
             alert(error._body.message);
