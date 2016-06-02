@@ -21,9 +21,10 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "@angular/platform-server": "2.0.0-rc.1",
     "@angular/router-deprecated": "2.0.0-rc.1",
+    "nativescript-background-http": "0.0.3",
+    "bluebird": "^3.4.0",
     "email-validator": "^1.0.4",
     "nativescript-angular": "0.1.1",
-    "nativescript-background-http": "0.0.3",
     "nativescript-unit-test-runner": "^0.3.3",
     "tns-core-modules": "^2.0.0"
   },

@@ -1,0 +1,7 @@
+<StackLayout #container>
+    <Label text="Location Type"></Label>
+    <ListPicker #locTypesPicker class="picker" [items]="locTypesItems" (selectedIndexChange)="locTypesSelectedIndexChanged(locTypesPicker)"></ListPicker>
+    <Label text="Importance"></Label>
+    <ListPicker #locTypesWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="locTypesSelectedIndexChanged(locTypesWgtPicker)"></ListPicker>
+    <Button text="Next" (tap)="goToMatchProfSix()"></Button>
+</StackLayout>
