@@ -26,12 +26,11 @@ import {UserService} from "./shared/User/userService";
 })
 @RouteConfig([
     { path: "/Landing", component: LandingPage, name: "Landing"},
-    { path: "/StateAndPicture", component: StateAndPicture, name: "StateAndPicture", useAsDefault: true}
-    { path: "/Landing", component: LandingPage, name: "Landing"}, // useAsDefault: true//
+    { path: "/StateAndPicture", component: StateAndPicture, name: "StateAndPicture"},
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
     { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"},
-    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo" , useAsDefault: true},
+    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo", useAsDefault: true},
     { path: "/MatchProfOne", component: MatchProfOne, name: "MatchProfOne"},
     { path: "/MatchProfTwo", component: MatchProfTwo, name: "MatchProfTwo"},
     { path: "/MatchProfThree", component: MatchProfThree, name: "MatchProfThree"},
@@ -39,6 +38,6 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfFive", component: MatchProfFive, name: "MatchProfFive"},
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
-    { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
+    { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"}
 ])
 export class AppComponent {}
