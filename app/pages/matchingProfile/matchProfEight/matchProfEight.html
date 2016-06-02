@@ -1,0 +1,70 @@
+<ScrollView>
+    <GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" columns="*, auto" #container>
+        <Label row="0" , col="0" text="Training Types You Accept"></Label>
+
+        <Label row="1" col="0" text="Ambitious"></Label>
+        <Switch checked="{{ ambitious }}" row="1" col="1" (tap)="ambitiousChange()"></Switch>
+
+        <Label row="2" col="0" text="Humorous"></Label>
+        <Switch checked="{{ humorous }}" row="2" col="1" (tap)="humorousChange()"></Switch>
+
+        <Label row="3" col="0" text="Collaborative"></Label>
+        <Switch checked="{{ collaborative }}" row="3" col="1" (tap)="collaborativeChange()"></Switch>
+
+        <Label row="4" col="0" text="Independent"></Label>
+        <Switch checked="{{ independent }}" row="4" col="1" (tap)="independentChange()"></Switch>
+
+        <Label row="5" col="0" text="Extroverted"></Label>
+        <Switch checked="{{ extroverted }}" row="5" col="1" (tap)="extrovertedChange()"></Switch>
+
+        <Label row="6" col="0" text="Introverted"></Label>
+        <Switch checked="{{ introverted }}" row="6" col="1" (tap)="introvertedChange()"></Switch>
+
+        <Label row="7" col="0" text="Artistic"></Label>
+        <Switch checked="{{ artistic }}" row="7" col="1" (tap)="artisticChange()"></Switch>
+
+        <Label row="8" col="0" text="Musical"></Label>
+        <Switch checked="{{ musical }}" row="8" col="1" (tap)="musicalChange()"></Switch>
+
+        <Label row="9" col="0" text="Creative"></Label>
+        <Switch checked="{{ creative }}" row="9" col="1" (tap)="creativeChange()"></Switch>
+
+        <Label row="10" col="0" text="Organized"></Label>
+        <Switch checked="{{ organized }}" row="10" col="1" (tap)="organizedChange()"></Switch>
+
+        <Label row="11" col="0" text="Playful"></Label>
+        <Switch checked="{{ playful }}" row="11" col="1" (tap)="playfulChange()"></Switch>
+
+        <Label row="12" col="0" text="Quiet"></Label>
+        <Switch checked="{{ quiet }}" row="12" col="1" (tap)="quietChange()"></Switch>
+
+        <Label row="13" col="0" text="Verbal Communicator"></Label>
+        <Switch checked="{{ verbalCommunicator }}" row="13" col="1" (tap)="verbalCommunicatorChange()"></Switch>
+
+        <Label row="14" col="0" text="Written Communicator"></Label>
+        <Switch checked="{{ writtenCommunicator }}" row="14" col="1" (tap)="writtenCommunicatorChange()"></Switch>
+
+        <Label row="15" col="0" text="Joyful"></Label>
+        <Switch checked="{{ joyful }}" row="15" col="1" (tap)="joyfulChange()"></Switch>
+
+        <Label row="16" col="0" text="Tech Oriented"></Label>
+        <Switch checked="{{ techOriented }}" row="16" col="1" (tap)="techOrientedChange()"></Switch>
+
+        <Label row="17" col="0" text="Analog"></Label>
+        <Switch checked="{{ analog }}" row="17" col="1" (tap)="analogChange()"></Switch>
+
+        <Label row="18" col="0" text="Patient"></Label>
+        <Switch checked="{{ patient }}" row="18" col="1" (tap)="patientChange()"></Switch>
+
+        <Label row="19" col="0" text="Spontaneous"></Label>
+        <Switch checked="{{ spontaneous }}" row="19" col="1" (tap)="spontaneousChange()"></Switch>
+
+        <Label row="20" col="0" text="Routine Oriented"></Label>
+        <Switch checked="{{ routineOriented }}" row="20" col="1" (tap)="routineOrientedChange()"></Switch>
+
+        <Label row="21" col="0" text="Importance"></Label>
+        <ListPicker row="22" col="0" #traitsWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="traitsSelectedIndexChanged(traitsWgtPicker)"></ListPicker>
+
+        <Button text="Done!" row="23" col="0" (tap)="goToMatchProfEight()"></Button>
+    </GridLayout>
+</ScrollView>

@@ -18,18 +18,31 @@ export class MatchProfEight {
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
     }
     
-    trainingsItems: string[] = ["0-3", "3-6", "6-9", "9-12", "12-15", "15-18"];
-    
     importanceItems: string[] = ["Not Important", "Somewhat Important", "Important", "Extremely Important"];
     
     importanceMap = new Map()
     
-    AMI: boolean = false;
-    AMS: boolean = false;
-    MCI: boolean = false;
-    SNM: boolean = false;
-    other: boolean = false;
-    trainings = this._userService.user.matchingProfile.trainings;
+    ambitious: boolean = false;
+    humorous: boolean = false;
+    collaborative: boolean = false;
+    independent: boolean = false;
+    extroverted: boolean = false;
+    introverted: boolean = false;
+    artistic: boolean = false;
+    musical: boolean = false;
+    creative: boolean = false;
+    organized: boolean = false;
+    playful: boolean = false;
+    quiet: boolean = false;
+    verbalCommunicator: boolean = false;
+    writtenCommunicator: boolean = false;
+    joyful: boolean = false;
+    techOriented: boolean = false;
+    analog: boolean = false;
+    patient: boolean = false;
+    spontaneous: boolean = false;
+    routineOriented: boolean = false;
+    traits = this._userService.user.matchingProfile.traits;
     
     ngOnInit() {
         this.importanceMap.set(0, 1);
@@ -38,83 +51,252 @@ export class MatchProfEight {
         this.importanceMap.set(3, 100);
     }
     
-    AMIChange() {
-        this.AMI = !this.AMI;
-        console.log("value equals ", this.AMI);
-        if (this.AMI === true) {
-            this.trainings.push(0);
-            console.log(this.trainings);
+    ambitiousChange() {
+        this.ambitious = !this.ambitious;
+        if (this.ambitious === true) {
+            this.traits.push(0);
             return;
         }
-        if (this.AMI === false) {
-            this.trainings.splice(this.trainings.indexOf(0), 1);
-            console.log(this.trainings);
+        if (this.ambitious === false) {
+            this.traits.splice(this.traits.indexOf(0), 1);
             return;
         }
     }
     
-    AMSChange() {
-        this.AMS = !this.AMS;
-        if (this.AMS === true) {
-            this.trainings.push(1);
-            console.log(this.trainings);
+    humorousChange() {
+        this.humorous = !this.humorous;
+        if (this.humorous === true) {
+            this.traits.push(1);
             return;
         }
-        if (this.AMS === false) {
-            this.trainings.splice(this.trainings.indexOf(1), 1);
-            console.log(this.trainings);
-            return;
-        }
-    }
-    
-    MCIChange() {
-        this.MCI = !this.MCI;
-        if (this.MCI === true) {
-            this.trainings.push(2);
-            console.log(this.trainings);
-            return;
-        }
-        if (this.MCI === false) {
-            this.trainings.splice(this.trainings.indexOf(2), 1);
-            console.log(this.trainings);
+        if (this.humorous === false) {
+            this.traits.splice(this.traits.indexOf(1), 1);
             return;
         }
     }
     
-    SNMChange() {
-        this.SNM = !this.SNM;
-        if (this.SNM === true) {
-            this.trainings.push(3);
-            console.log(this.trainings);
+    collaborativeChange() {
+        this.collaborative = !this.collaborative;
+        if (this.collaborative === true) {
+            this.traits.push(2);
             return;
         }
-        if (this.SNM === false) {
-            this.trainings.splice(this.trainings.indexOf(3), 1);
-            console.log(this.trainings);
-            return;
-        }
-    }
-    
-    otherChange() {
-        this.other = !this.other;
-        if (this.other === true) {
-            this.trainings.push(4);
-            console.log(this.trainings);
-            return;
-        }
-        if (this.other === false) {
-            this.trainings.splice(this.trainings.indexOf(4), 1);
-            console.log(this.trainings);
+        if (this.collaborative === false) {
+            this.traits.splice(this.traits.indexOf(2), 1);
             return;
         }
     }
     
-    trainingsWgtSelectedIndexChanged(trainingsWgtPicker) {
-        this._userService.user.matchingProfile.trainingsWgt = <number> this.importanceMap.get(trainingsWgtPicker.selectedIndex);
+    independentChange() {
+        this.independent = !this.independent;
+        if (this.independent === true) {
+            this.traits.push(3);
+            return;
+        }
+        if (this.independent === false) {
+            this.traits.splice(this.traits.indexOf(3), 1);
+            return;
+        }
     }
     
-    goToMatchProfEight() {
-        this._router.navigate(["/MatchProfEight"])
+    extrovertedChange() {
+        this.extroverted = !this.extroverted;
+        if (this.extroverted === true) {
+            this.traits.push(4);
+            return;
+        }
+        if (this.extroverted === false) {
+            this.traits.splice(this.traits.indexOf(4), 1);
+            return;
+        }
+    }
+    
+    introvertedChange() {
+        this.introverted = !this.introverted;
+        if (this.introverted === true) {
+            this.traits.push(5);
+            return;
+        }
+        if (this.introverted === false) {
+            this.traits.splice(this.traits.indexOf(5), 1);
+            return;
+        }
+    }
+    
+    artisticChange() {
+        this.artistic = !this.artistic;
+        if (this.artistic === true) {
+            this.traits.push(6);
+            return;
+        }
+        if (this.artistic === false) {
+            this.traits.splice(this.traits.indexOf(6), 1);
+            return;
+        }
+    }
+    
+    musicalChange() {
+        this.musical = !this.musical;
+        if (this.musical === true) {
+            this.traits.push(7);
+            return;
+        }
+        if (this.musical === false) {
+            this.traits.splice(this.traits.indexOf(7), 1);
+            return;
+        }
+    }
+    
+    creativeChange() {
+        this.creative = !this.creative;
+        if (this.creative === true) {
+            this.traits.push(8);
+            return;
+        }
+        if (this.creative === false) {
+            this.traits.splice(this.traits.indexOf(8), 1);
+            return;
+        }
+    }
+    
+    organizedChange() {
+        this.organized = !this.organized;
+        if (this.organized === true) {
+            this.traits.push(9);
+            return;
+        }
+        if (this.organized === false) {
+            this.traits.splice(this.traits.indexOf(9), 1);
+            return;
+        }
+    }
+    
+    playfulChange() {
+        this.playful = !this.playful;
+        if (this.playful === true) {
+            this.traits.push(10);
+            return;
+        }
+        if (this.playful === false) {
+            this.traits.splice(this.traits.indexOf(10), 1);
+            return;
+        }
+    }
+    
+    quietChange() {
+        this.quiet = !this.quiet;
+        if (this.quiet === true) {
+            this.traits.push(11);
+            return;
+        }
+        if (this.quiet === false) {
+            this.traits.splice(this.traits.indexOf(11), 1);
+            return;
+        }
+    }
+    
+    verbalCommunicatorChange() {
+        this.verbalCommunicator = !this.verbalCommunicator;
+        if (this.extroverted === true) {
+            this.traits.push(12);
+            return;
+        }
+        if (this.verbalCommunicator === false) {
+            this.traits.splice(this.traits.indexOf(12), 1);
+            return;
+        }
+    }
+    
+    writtenCommunicatorChange() {
+        this.writtenCommunicator = !this.writtenCommunicator;
+        if (this.writtenCommunicator === true) {
+            this.traits.push(13);
+            return;
+        }
+        if (this.writtenCommunicator === false) {
+            this.traits.splice(this.traits.indexOf(13), 1);
+            return;
+        }
+    }
+    
+    joyfulChange() {
+        this.joyful = !this.joyful;
+        if (this.joyful === true) {
+            this.traits.push(14);
+            return;
+        }
+        if (this.joyful === false) {
+            this.traits.splice(this.traits.indexOf(14), 1);
+            return;
+        }
+    }
+    
+    techOrientedChange() {
+        this.techOriented = !this.techOriented;
+        if (this.techOriented === true) {
+            this.traits.push(15);
+            return;
+        }
+        if (this.techOriented === false) {
+            this.traits.splice(this.traits.indexOf(15), 1);
+            return;
+        }
+    }
+    
+    analogChange() {
+        this.analog = !this.analog;
+        if (this.analog === true) {
+            this.traits.push(16);
+            return;
+        }
+        if (this.analog === false) {
+            this.traits.splice(this.traits.indexOf(16), 1);
+            return;
+        }
+    }
+    
+    patientChange() {
+        this.patient = !this.patient;
+        if (this.patient === true) {
+            this.traits.push(17);
+            return;
+        }
+        if (this.patient === false) {
+            this.traits.splice(this.traits.indexOf(17), 1);
+            return;
+        }
+    }
+    
+    spontaneousChange() {
+        this.spontaneous = !this.spontaneous;
+        if (this.spontaneous === true) {
+            this.traits.push(4);
+            return;
+        }
+        if (this.spontaneous === false) {
+            this.traits.splice(this.traits.indexOf(18), 1);
+            return;
+        }
+    }
+    
+    routineOrientedChange() {
+        this.routineOriented = !this.routineOriented;
+        if (this.routineOriented === true) {
+            this.traits.push(19);
+            return;
+        }
+        if (this.routineOriented === false) {
+            this.traits.splice(this.traits.indexOf(19), 1);
+            return;
+        }
+    }
+    
+    traitsWgtSelectedIndexChanged(traitsWgtPicker) {
+        this._userService.user.matchingProfile.traitsWgt = <number> this.importanceMap.get(traitsWgtPicker.selectedIndex);
+    }
+    
+    goToMySuggestedMatches() {
+        this._router.navigate(["/MySuggestedMatches"])
     }
     
 }

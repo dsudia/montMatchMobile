@@ -1,23 +1,23 @@
 <GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto, auto" columns="*, auto" #container>
     <Label row="0" , col="0" text="Training Types You Accept"></Label>
 
-    <Label row="1" col="0" text="AMI></Label>
-    <Switch checked=" {{ AMI }} " row="1 " col="1 " (tap)="AMIChange() "></Switch>
+    <Label row="1" col="0" text="AMI"></Label>
+    <Switch checked="{{ AMI }}" row="1" col="1" (tap)="AMIChange()"></Switch>
 
-    <Label row="2 " col="0 " text="AMS "></Label>
-    <Switch checked="{{ AMS }} " row="2 " col="1 " (tap)="AMSChange() "></Switch>
+    <Label row="2" col="0" text="AMS"></Label>
+    <Switch checked="{{ AMS }}" row="2 " col="1" (tap)="AMSChange()"></Switch>
 
-    <Label row="3 " col="0 " text="MCI "></Label>
-    <Switch checked="{{ MCI }} " row="3 " col="1 " (tap)="MCIChange() "></Switch>
+    <Label row="3" col="0" text="MCI"></Label>
+    <Switch checked="{{ MCI }}" row="3" col="1" (tap)="MCIChange()"></Switch>
 
-    <Label row="4 " col="0 " text="SNM "></Label>
-    <Switch checked="{{ SNM }} " row="4 " col="1 " (tap)="SNMChange() "></Switch>
+    <Label row="4" col="0" text="SNM"></Label>
+    <Switch checked="{{ SNM }}" row="4" col="1" (tap)="SNMChange()"></Switch>
 
-    <Label row="5 " col="0 " text="Other "></Label>
-    <Switch checked="{{ Other }} " row="5 " col="1 " (tap)="otherChange() "></Switch>
-    
-    <Label row="6 " col="0 " text="Importance "></Label>
-    <ListPicker row="7 " col="0 " #trainingsWgtPicker class="picker " [items]="importanceItems " (selectedIndexChange)="trainingsSelectedIndexChanged(trainingsWgtPicker) "></ListPicker>
+    <Label row="5" col="0" text="Other"></Label>
+    <Switch checked="{{ other }}" row="5" col="1" (tap)="otherChange()"></Switch>
 
-    <Button text="Next " row="8 " col="0 " (tap)="goToMatchProfEight() "></Button>
+    <Label row="6" col="0" text="Importance"></Label>
+    <ListPicker row="7" col="0" #trainingsWgtPicker class="picker" [items]="importanceItems" (selectedIndexChange)="trainingsSelectedIndexChanged(trainingsWgtPicker)"></ListPicker>
+
+    <Button text="Next" row="8" col="0" (tap)="goToMatchProfEight()"></Button>
 </GridLayout>
