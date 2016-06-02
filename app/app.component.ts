@@ -28,7 +28,7 @@ import {UserService} from "./shared/User/userService";
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
     { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"},
-    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo", useAsDefault: true},
+    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo" , useAsDefault: true},
     { path: "/MatchProfOne", component: MatchProfOne, name: "MatchProfOne"},
     { path: "/MatchProfTwo", component: MatchProfTwo, name: "MatchProfTwo"},
     { path: "/MatchProfThree", component: MatchProfThree, name: "MatchProfThree"},

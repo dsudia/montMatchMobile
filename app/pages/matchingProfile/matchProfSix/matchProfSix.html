@@ -1,0 +1,23 @@
+<GridLayout rows="auto, auto, auto, auto, auto, auto, auto, auto" columns="*, auto" #container>
+    <Label row="0" , col="0" text="Age Bands"></Label>
+
+    <Label row="1" col="0" text="0-3"></Label>
+    <Switch checked="{{ zeroToThree }}" row="1" col="1" (tap)="zeroToThreeChange()"></Switch>
+
+    <Label row="2" col="0" text="3-6"></Label>
+    <Switch checked="{{ threeToSix }}" row="2" col="1" (tap)="threeToSixChange()"></Switch>
+
+    <Label row="3" col="0" text="6-9"></Label>
+    <Switch checked="{{ sixToNine }}" row="3" col="1" (tap)="sixToNineChange()"></Switch>
+
+    <Label row="4" col="0" text="3-6"></Label>
+    <Switch checked="{{ nineToTwelve }}" row="4" col="1" (tap)="nineToTwelveChange()"></Switch>
+
+    <Label row="5" col="0" text="3-6"></Label>
+    <Switch checked="{{ twelveToFifteen }}" row="5" col="1" (tap)="twelveToFifteenChange()"></Switch>
+
+    <Label row="6" col="0" text="3-6"></Label>
+    <Switch checked="{{ fifteenToEighteen }}" row="6" col="1" (tap)="fifteenToEighteenChange()"></Switch>
+
+    <Button text="Next" row="7" col="0" (tap)="goToMatchProfSeven()"></Button>
+</GridLayout>
