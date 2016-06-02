@@ -12,6 +12,8 @@ import {UserService} from "../../../shared/User/userService";
     styleUrls: ["pages/matchingProfile/matchProfEight/matchProfEight-common.css", "pages/matchingProfile/matchProfEight/matchProfEight.css"]
 })
 
+// TODO: Make HTTP call to submit the matching profile
+
 export class MatchProfEight {
     @ViewChild("container") container: ElementRef;
     
