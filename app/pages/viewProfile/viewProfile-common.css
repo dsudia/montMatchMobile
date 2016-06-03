@@ -1,0 +1,12 @@
+.block {
+    border-width: 1;
+    border-color: black;
+}
+
+.match {
+    color: green;
+}
+
+.nomatch {
+    color: red;
+}

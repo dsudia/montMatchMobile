@@ -1,0 +1,37 @@
+<StackLayout #container>
+    <Label text="View Profile"></Label>
+    <ScrollView>
+        <StackLayout>
+            <Image src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
+            <Label textWrap="true" text="{{theirProfile.description}}"></Label>
+            <Label text="State {{theirProfile.state}}"></Label>
+            <Label text="{{theirProfile.matchPercent * 100}}%"></Label>
+            <Label text="Based on the following"></Label>
+            <StackLayout>
+                <GridLayout columns="120, *, auto" rows="auto" class="header">
+                    <Label col="0" text="Trait"></Label>
+                    <Label col="1" text="Yours"></Label>
+                    <Label col="2" text="Theirs"></Label>
+                </GridLayout>
+                <GridLayout columns="120, *, *" rows="auto" class="block">
+                    <Label col="0" text="Location"></Label>
+                    <StackLayout col="1">
+                        <Label *ngFor="#param of paramMap.Location.mine" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                    <StackLayout col="2">
+                        <Label *ngFor="#param of paramMap.Location.theirs" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout columns="120, *, *" rows="auto" class="block">
+                    <Label col="0" text="Traits"></Label>
+                    <StackLayout col="1">
+                        <Label *ngFor="#param of paramMap.Traits.mine" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                    <StackLayout col="2">
+                        <Label *ngFor="#param of paramMap.Traits.theirs" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

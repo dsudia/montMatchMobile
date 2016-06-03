@@ -1,7 +1,7 @@
 var validator = require("email-validator");
-
+var observableArray = require("data/observable-array");
 export class User {
-    token: string;
+    token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNjaG9vbDFAdGVzdC5jb20iLCJpc1RlYWNoZXIiOiJmYWxzZSIsImlhdCI6MTQ2NDg4NTgzMH0.fUlLxDiFYtLHPp_FRDqFrf9SbaKgnf5sEOIWuuUunEE';
     // Original Sign Up
     email: string;
     password: string;
@@ -11,6 +11,8 @@ export class User {
     image: string;
     state: string;
     description: string;
+    isTeacher: boolean;
+    matchPercent: number;
     matchingProfile = {
         orgTypes: [],
         orgTypesWgt: 0,
@@ -28,7 +30,8 @@ export class User {
         traitsWgt: 0,
         trainings: [],
         trainingsWgt: 0
-    }
+    };
+    suggestedMatches: any = new observableArray.ObservableArray();
     
     
     isValidEmail() {

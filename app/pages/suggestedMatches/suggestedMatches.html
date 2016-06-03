@@ -1,12 +1,10 @@
 <StackLayout>
-    <p>Here are some teachers who might be a good fit for your school:</p>
-    <ListView items="{{ _userService.user.suggestedMatches }}">
+    <Label text="Get Matches"></Label>
+    <ScrollView #container>
+    <ListView items="{{ _userService.user.suggestedMatches }}" (tap)="hello()">
         <ListView.itemTemplate>
-            <GridLayout rows="auto" columns="auto, *, auto">
-                <Image row="0" col="0" src="{{ _userService.user.suggestedMatches[0].avatarUrl }}"></Image>
-                <p row="0" col="1">{{ _userService.user.suggestedMatches[0].displayName }}</p>
-                <p row="0" col="2">{{ _userService.user.suggestedMatches[0].matchPerc }}</p>
-            </GridLayout>
+            <Label text="lol wut?"></Label>
         </ListView.itemTemplate>
     </ListView>
+    </ScrollView>
 </StackLayout>

@@ -15,6 +15,8 @@ import {MatchProfFive} from "./pages/matchingProfile/matchProfFive/matchProfFive
 import {MatchProfSix} from "./pages/matchingProfile/matchProfSix/matchProfSix.component";
 import {MatchProfSeven} from "./pages/matchingProfile/matchProfSeven/matchProfSeven.component";
 import {MatchProfEight} from "./pages/matchingProfile/matchProfEight/matchProfEight.component";
+import {SuggestedMatches} from "./pages/suggestedMatches/suggestedMatches.component";
+import {ViewProfile} from "./pages/viewProfile/viewProfile.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
 
@@ -30,7 +32,7 @@ import {UserService} from "./shared/User/userService";
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
     { path: "/SignUpOne", component: SignUpOne, name: "SignUpOne"},
-    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo", useAsDefault: true},
+    { path: "/MatchProfInfo", component: MatchProfInfo, name: "MatchProfInfo"},
     { path: "/MatchProfOne", component: MatchProfOne, name: "MatchProfOne"},
     { path: "/MatchProfTwo", component: MatchProfTwo, name: "MatchProfTwo"},
     { path: "/MatchProfThree", component: MatchProfThree, name: "MatchProfThree"},
@@ -38,6 +40,8 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfFive", component: MatchProfFive, name: "MatchProfFive"},
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
-    { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"}
+    { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
+    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches"},
+    { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile", useAsDefault: true},
 ])
 export class AppComponent {}
