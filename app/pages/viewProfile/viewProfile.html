@@ -13,7 +13,16 @@
                     <Label col="1" text="Yours"></Label>
                     <Label col="2" text="Theirs"></Label>
                 </GridLayout>
-                <GridLayout columns="120, *, *" rows="auto" class="block">
+                <GridLayout *ngFor="#key of paramMapKeys" columns="120, *, *" rows="auto" class="block">
+                    <Label col="0" [text]="key"></Label>
+                    <StackLayout col="1">
+                        <Label *ngFor="#param of paramMap[key].mine" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                    <StackLayout col="2">
+                        <Label *ngFor="#param of paramMap[key].theirs" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <!--<GridLayout columns="120, *, *" rows="auto" class="block">
                     <Label col="0" text="Location"></Label>
                     <StackLayout col="1">
                         <Label *ngFor="#param of paramMap.Location.mine" [text]="param.name" [ngClass]="param.match"></Label>
@@ -21,16 +30,7 @@
                     <StackLayout col="2">
                         <Label *ngFor="#param of paramMap.Location.theirs" [text]="param.name" [ngClass]="param.match"></Label>
                     </StackLayout>
-                </GridLayout>
-                <GridLayout columns="120, *, *" rows="auto" class="block">
-                    <Label col="0" text="Traits"></Label>
-                    <StackLayout col="1">
-                        <Label *ngFor="#param of paramMap.Traits.mine" [text]="param.name" [ngClass]="param.match"></Label>
-                    </StackLayout>
-                    <StackLayout col="2">
-                        <Label *ngFor="#param of paramMap.Traits.theirs" [text]="param.name" [ngClass]="param.match"></Label>
-                    </StackLayout>
-                </GridLayout>
+                </GridLayout>-->
             </StackLayout>
         </StackLayout>
     </ScrollView>

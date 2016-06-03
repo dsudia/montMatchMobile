@@ -23,6 +23,7 @@ export class ViewProfile {
     myMatchProfile: Object;
     paramMap: Object;
     map: Object;
+    paramMapKeys: Array<String>;
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
         this.theirEmail = 'teacher1@test.com';
         this.theirProfile = new User();
@@ -44,8 +45,29 @@ export class ViewProfile {
             Traits: {
                 mine: [],
                 theirs: [],
-            }
+            },
+            Organization: {
+                mine: [],
+                theirs: [],
+            },
+            Size: {
+                mine: [],
+                theirs: [],
+            },
+            Calendar: {
+                mine: [],
+                theirs: [],
+            },
+            States: {
+                mine: [],
+                theirs: [],
+            },
+            Certification: {
+                mine: [],
+                theirs: [],
+            },
         }
+        this.paramMapKeys = Object.keys(this.paramMap);
     }
     ngOnInit() {
         this._userService.getProfile(this.theirEmail)
@@ -59,10 +81,10 @@ export class ViewProfile {
             this.theirProfile.isTeacher = response.profile.isTeacher;
             this.theirProfile.matchingProfile = response.theirMatchProfile;
             this.myMatchProfile = response.myMatchProfile;
-            this.paramMapper("Location", true);
-            this.paramMapper("Location", false);
-            this.paramMapper("Traits", true);
-            this.paramMapper("Traits", false);
+            this.paramMapKeys.forEach(key => {
+                this.paramMapper(key, true);
+                this.paramMapper(key, false);
+            })
         }, error => {
             console.log('Something went wrong!');
         })
@@ -70,7 +92,7 @@ export class ViewProfile {
     /**
      * Creates a grid of the traits/params/whatever for the comparison
      */
-    paramMapper(param: string, me: boolean){
+    paramMapper(param, me: boolean){
         console.log('hello?');
         
         let oArray = [];
