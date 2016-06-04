@@ -32,7 +32,7 @@ export class User {
         trainingsWgt: 0
     };
     suggestedMatches: any = new observableArray.ObservableArray();
-    
+    currentlyViewingProfile: string;
     
     isValidEmail() {
         return validator.validate(this.email);

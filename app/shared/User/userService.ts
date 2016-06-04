@@ -39,21 +39,11 @@ export class UserService {
         console.log("Called!!!");
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
-        this._http.get(
+        return this._http.get(
             Config.apiUrl + "matches/suggested?token=" + this.user.token,
             { headers: headers }
         )
-        .map(res => res.json())
-        .subscribe(response => {
-            console.log('Response', response);
-            console.log('matches', response.suggestedMatches);
-            this.user.suggestedMatches = new observableArray.ObservableArray(response.suggestedMatches);
-            this.user.suggestedMatches.forEach(match => {
-                console.log(match);  
-            })
-        }, error => {
-            this.handleErrors(error);
-        })
+        .catch(this.handleErrors);
     }
     getProfile(profileEmail: string) {
         let headers = new Headers();
