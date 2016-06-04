@@ -17,6 +17,7 @@ import {MatchProfSeven} from "./pages/matchingProfile/matchProfSeven/matchProfSe
 import {MatchProfEight} from "./pages/matchingProfile/matchProfEight/matchProfEight.component";
 import {SuggestedMatches} from "./pages/suggestedMatches/suggestedMatches.component";
 import {ViewProfile} from "./pages/viewProfile/viewProfile.component";
+import {TestButtons} from "./pages/testButtons/testButtons.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
 
@@ -43,5 +44,6 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
     { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches"},
     { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile", useAsDefault: true},
+    { path: "/TestButtons", component: TestButtons, name: "TestButtons"},
 ])
 export class AppComponent {}

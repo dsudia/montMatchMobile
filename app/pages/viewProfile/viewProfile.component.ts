@@ -25,7 +25,7 @@ export class ViewProfile {
     map: Object;
     paramMapKeys: Array<String>;
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
-        this.theirEmail = 'teacher1@test.com';
+        this.theirEmail = 'teacher2@test.com';
         this.theirProfile = new User();
         this.myMatchProfile = new Object();
         this.map = {
@@ -35,37 +35,74 @@ export class ViewProfile {
             Calendar: 'cals',
             Traits: 'traits',
             States: 'states',
-            Certification: 'training'
+            Certification: 'training',
+            "Age Ranges": 'ageRanges',
         }
         this.paramMap = {
             Location: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
             Traits: {
+                percent: 0, 
+                target: 70,               
                 mine: [],
                 theirs: [],
+                single: false,
+                rowMatch: false,
             },
             Organization: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
             Size: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
             Calendar: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
             States: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
             Certification: {
+                percent: 0,
+                target: 100,
                 mine: [],
                 theirs: [],
+                single: true,
+                rowMatch: false,
             },
+            "Age Ranges": {
+                percent: 0,
+                target: 100,
+                mine: [],
+                theirs: [],
+                single: false,
+                rowMatch: false,
+            }
         }
         this.paramMapKeys = Object.keys(this.paramMap);
     }
@@ -82,9 +119,9 @@ export class ViewProfile {
             this.theirProfile.matchingProfile = response.theirMatchProfile;
             this.myMatchProfile = response.myMatchProfile;
             this.paramMapKeys.forEach(key => {
-                this.paramMapper(key, true);
-                this.paramMapper(key, false);
+                this.paramMapper(key);
             })
+            
         }, error => {
             console.log('Something went wrong!');
         })
@@ -92,42 +129,44 @@ export class ViewProfile {
     /**
      * Creates a grid of the traits/params/whatever for the comparison
      */
-    paramMapper(param, me: boolean){
-        console.log('hello?');
-        
-        let oArray = [];
-        if(me) {
-            let webName = this.map[param];
-            if (this.myMatchProfile[webName]){
-                this.myMatchProfile[webName].forEach(num => {
-                    let match: string = 'nomatch';
-                    if (this.theirProfile.matchingProfile[this.map[param]].indexOf(num) !== -1) {
-                        match = 'match';
+    paramMapper(param){
+        let meArray = [];
+        let theirArray = [];
+        let webName = this.map[param];
+        if (this.myMatchProfile[webName]){
+            this.myMatchProfile[webName].forEach(num => {
+                let match: string = 'nomatch';
+                if (this.theirProfile.matchingProfile[webName].indexOf(num) !== -1) {
+                    if (this.paramMap[param].single) {
+                        this.paramMap[param].percent = 100;
+                    } else {
+                        this.paramMap[param].percent += 1 / this.myMatchProfile[webName].length * 100 
                     }
-                    oArray.push({
-                        name: MatchParams.params[webName][num],
-                        match: match,
-                    });
+                    match = 'match';
+                }
+                meArray.push({
+                    name: MatchParams.params[webName][num],
+                    match: match,
                 });
-                console.log(JSON.stringify(oArray));
-                this.paramMap[param].mine = oArray.sort(this.sortByMatches);
+            });
+            this.paramMap[param].percent = Math.ceil(this.paramMap[param].percent);
+            if (this.paramMap[param].percent >= this.paramMap[param].target) {
+                this.paramMap[param].rowMatch = true;
             }
-        } else {
-            let webName = this.map[param];
-            if (this.theirProfile.matchingProfile[webName]){
-                this.theirProfile.matchingProfile[webName].forEach(num => {
-                    let match: string = 'nomatch';
-                    if (this.myMatchProfile[this.map[param]].indexOf(num) !== -1) {
-                        match = 'match';
-                    }
-                    oArray.push({
-                        name: MatchParams.params[webName][num],
-                        match: match,
-                    });
+            this.paramMap[param].mine = meArray.sort(this.sortByMatches);
+        }
+        if (this.theirProfile.matchingProfile[webName]){
+            this.theirProfile.matchingProfile[webName].forEach(num => {
+                let match: string = 'nomatch';
+                if (this.myMatchProfile[this.map[param]].indexOf(num) !== -1) {
+                    match = 'match';
+                }
+                theirArray.push({
+                    name: MatchParams.params[webName][num],
+                    match: match,
                 });
-                console.log(JSON.stringify(oArray));
-                this.paramMap[param].theirs = oArray.sort(this.sortByMatches);
-            } 
+            });
+            this.paramMap[param].theirs = theirArray.sort(this.sortByMatches); 
         }
     }
     sortByMatches(a, b) {

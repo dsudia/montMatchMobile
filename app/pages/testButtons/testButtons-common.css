@@ -1,0 +1,7 @@
+.stateButton {
+    width: 20%;
+}
+.picked {
+    background-color: black;
+    color: white;
+}
