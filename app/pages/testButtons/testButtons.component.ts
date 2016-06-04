@@ -74,7 +74,7 @@ export class TestButtons {
     }
     
     toggleState1(key: string) {
-        this.toggle(this.statesArray, this.statesBoolean, key, false);
+        this.toggle(this.statesArray, this.statesBoolean, key, true);
         console.log(this.getStateArray());
     }
     
