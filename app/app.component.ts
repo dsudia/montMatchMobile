@@ -42,8 +42,7 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
     { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
-    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches"},
-    { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile", useAsDefault: true},
-    { path: "/TestButtons", component: TestButtons, name: "TestButtons"},
+    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches", useAsDefault: true},
+    { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile"},
 ])
 export class AppComponent {}
