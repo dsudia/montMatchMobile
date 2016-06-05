@@ -1,9 +1,13 @@
-﻿button, label, stack-layout {
-    horizontal-align: center;    
+﻿button,
+label,
+stack-layout {
+    horizontal-align: center;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-button {
-    font-size: 36;
+Button {
+    font-size: 18rem;
 }
 
 .title {
@@ -16,4 +20,8 @@ button {
     color: #284848;
     text-align: center;
     margin: 0 20;
-} 
+}
+
+page {
+    background-color: midnightblue;
+}

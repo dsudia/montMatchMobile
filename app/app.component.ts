@@ -19,6 +19,8 @@ import {SuggestedMatches} from "./pages/suggestedMatches/suggestedMatches.compon
 import {ViewProfile} from "./pages/viewProfile/viewProfile.component";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {UserService} from "./shared/User/userService";
+import fontModule = require("ui/styling/font");
+fontModule.ios.registerFont("GoodJacket-Regular.otf");
 
 @Component({
     selector: "main",
@@ -27,7 +29,7 @@ import {UserService} from "./shared/User/userService";
     template: "<page-router-outlet></page-router-outlet>"
 })
 @RouteConfig([
-    { path: "/Landing", component: LandingPage, name: "Landing"},
+    { path: "/Landing", component: LandingPage, name: "Landing", useAsDefault: true},
     { path: "/StateAndPicture", component: StateAndPicture, name: "StateAndPicture"},
     { path: "/Login", component: LoginPage, name: "Login" },
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
@@ -41,7 +43,7 @@ import {UserService} from "./shared/User/userService";
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
     { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
-    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches", useAsDefault: true},
+    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches"},
     { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile"}
 ])
 export class AppComponent {}

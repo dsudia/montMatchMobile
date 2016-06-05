@@ -1,6 +1,9 @@
-<StackLayout #container>
-    <Label text="Are you a"></Label>
-    <Button text="Teacher" (tap)="getCredentials()"></Button>
-    <Button text="School" (tap)="goToSchoolInfo()"></Button>
-    <Button text="Log In" (tap)="goToLogin()"></Button>
+<StackLayout>
+    <Label text="MontessoriMatch" class="logo"></Label>
+    <GridLayout rows="50, 75, 300" columns="60, 90, 75, 90, 60" #container>
+        <Label row="0" col="2" text="I am a" class="greeting"></Label>
+        <Button row="1" col="1" text="Teacher" (tap)="getCredentials()"></Button>
+        <Button row="1" col="3" text="School" (tap)="goToSchoolInfo()"></Button>
+        <Button row="2" col="2" text="Log In" (tap)="goToLogin()"></Button>
+    </GridLayout>
 </StackLayout>
