@@ -1,5 +1,6 @@
 <StackLayout #container>
-    <TextField #email hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none"></TextField>
-    <TextField #password hint="Password" secure="true"></TextField>
+    <Label text="MontessoriMatch" class="logo"></Label>
+    <TextField #email [(ngModel)]="loginEmail" hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" id="first"></TextField>
+    <TextField #password [(ngModel)]="loginPass" hint="Password" secure="true"></TextField>
     <Button text="Log In" class="submit-button"></Button>
 </StackLayout>
