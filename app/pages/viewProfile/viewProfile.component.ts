@@ -137,6 +137,10 @@ export class ViewProfile {
             console.log('Something went wrong!');
         })
     }
+    doSomething() {
+        console.log('Loaded!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        
+    }
     showInterest() {
        this._userService.showInterest()
        .map(res =>  res.json())

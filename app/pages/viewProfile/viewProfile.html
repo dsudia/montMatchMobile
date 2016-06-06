@@ -1,9 +1,9 @@
 <StackLayout #container>
-    <Label visibility="{{theirProfile.displayName ? 'collapsed' : 'visible'}} text="View Profile"></Label>
-    <Label visibility="{{theirProfile.displayName ? 'visible' : 'collapsed'}} text="View {{theirprofile.displayName}'s profile'"></Label>
+    <Label visibility="{{theirProfile.displayName ? 'collapsed' : 'visible'}}" text="View Profile"></Label>
+    <Label visibility="{{theirProfile.displayName ? 'visible' : 'collapsed'}}" text="Viewing {{theirProfile.displayName}}'s profile"></Label>
     <ScrollView>
         <StackLayout class="bigStack">
-            <Image src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
+            <Image onload="doSomething()" src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
             <Label textWrap="true" class="description" [text]="theirProfile.description"></Label>
             <Label class="emphasis full left" visibility="{{theirProfile.state ? 'visible' : 'collapsed'}}" [text]="'State: ' + theirProfile.state"></Label>
             <Label class="emphasis full left" visibility="{{theirProfile.email ? 'visible' : 'collapsed'}}" [text]="'Email: ' + theirProfile.email"></Label>
