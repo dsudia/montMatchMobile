@@ -56,6 +56,36 @@ export class UserService {
         .catch(this.handleErrors);
     }
     
+    showInterest(profileEmail: string = null) {
+        console.log(this.user.token);
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.put(
+            Config.apiUrl + 'matches/interest',
+            JSON.stringify({
+                token: this.user.token,
+                interestedIn: profileEmail || this.user.currentlyViewingProfile,
+            }), {
+                headers: headers
+            }
+        )
+        .catch(this.handleErrors);
+    }
+    removeInterest(profileEmail: string = null) {
+        console.log(this.user.token);
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.put(
+            Config.apiUrl + 'matches/uninterest',
+            JSON.stringify({
+                token: this.user.token,
+                uninterestedIn: profileEmail || this.user.currentlyViewingProfile,
+            }), {
+                headers: headers
+            }
+        )
+        .catch(this.handleErrors);
+    }
     loginUser(loginEmail: string, loginPass: string) {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");

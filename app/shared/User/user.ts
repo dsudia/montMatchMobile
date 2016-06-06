@@ -12,6 +12,8 @@ export class User {
     state: string;
     description: string;
     isTeacher: boolean;
+    interest: boolean;
+    match: boolean;
     matchPercent: number;
     matchingProfile = {
         orgTypes: [],

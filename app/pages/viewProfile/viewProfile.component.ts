@@ -24,6 +24,9 @@ export class ViewProfile {
     paramMap: Object;
     map: Object;
     paramMapKeys: Array<String>;
+    message: string;
+    messageVisible: boolean = false;
+    
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
         this.theirEmail = _userService.user.currentlyViewingProfile;
         this.theirProfile = new User();
@@ -107,6 +110,10 @@ export class ViewProfile {
         this.paramMapKeys = Object.keys(this.paramMap);
     }
     ngOnInit() {
+        this.getProfile();
+    }
+    
+    getProfile() {
         this._userService.getProfile(this.theirEmail)
         .map(res => res.json())
         .subscribe(response => {
@@ -114,8 +121,12 @@ export class ViewProfile {
             this.theirProfile.image = response.profile.avatarUrl;
             this.theirProfile.description = response.profile.description;
             this.theirProfile.state = response.profile.state;
+            this.theirProfile.interest = response.profile.interest;
+            this.theirProfile.match = response.profile.match;
             this.theirProfile.matchPercent = response.profile.matchPercent;
             this.theirProfile.isTeacher = response.profile.isTeacher;
+            this.theirProfile.email = response.profile.email;
+            this.theirProfile.displayName = response.profile.displayName;
             this.theirProfile.matchingProfile = response.theirMatchProfile;
             this.myMatchProfile = response.myMatchProfile;
             this.paramMapKeys.forEach(key => {
@@ -126,6 +137,35 @@ export class ViewProfile {
             console.log('Something went wrong!');
         })
     }
+    showInterest() {
+       this._userService.showInterest()
+       .map(res =>  res.json())
+       .subscribe(result => {
+           this.displayMessage(result.message, 2000);
+           this.getProfile();
+       }, error => {
+           alert('Something went wrong!');
+       })
+    }
+    removeInterest() {
+       this._userService.removeInterest()
+       .map(res =>  res.json())
+       .subscribe(result => {
+           this.displayMessage(result.message, 2000);
+           this.getProfile();
+       }, error => {
+           alert('Something went wrong!');
+       })
+    }
+    
+    displayMessage(message: string, milliseconds: number) {
+        this.message = message;
+        this.messageVisible = true;
+        setTimeout(() => {
+            this.messageVisible = false;
+        }, milliseconds)
+    }
+    
     /**
      * Creates a grid of the traits/params/whatever for the comparison
      */
@@ -133,6 +173,7 @@ export class ViewProfile {
         let meArray = [];
         let theirArray = [];
         let webName = this.map[param];
+        this.paramMap[param].percent = 0;
         if (this.myMatchProfile[webName]){
             this.myMatchProfile[webName].forEach(num => {
                 let match: string = 'nomatch';

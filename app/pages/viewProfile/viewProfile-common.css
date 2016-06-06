@@ -1,8 +1,16 @@
-.block {
+button {
     border-width: 1;
-    border-color: black;
+    border-color: white;
+    padding: 5;
+    border-radius: 10;
+    margin: 15, 0, 0, 0;
 }
-
+.bigStack {
+    padding: 5rem;
+}
+.traits {
+    background-color: white;
+}
 .match {
     color: green;
 }
