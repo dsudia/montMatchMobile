@@ -11,3 +11,7 @@ GridLayout {
     display: block;
     padding: 5rem;
 }
+
+GridLayout Label {
+    color: black;
+}
