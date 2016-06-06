@@ -30,7 +30,7 @@ fontModule.ios.registerFont("GoodJacket-Regular.otf");
     template: "<page-router-outlet></page-router-outlet>"
 })
 @RouteConfig([
-    { path: "/Landing", component: LandingPage, name: "Landing", useAsDefault: true},
+    { path: "/Landing", component: LandingPage, name: "Landing"},
     { path: "/StateAndPicture", component: StateAndPicture, name: "StateAndPicture"},
     { path: "/Login", component: LoginPage, name: "Login"},
     { path: "/SchoolInfo", component: SchoolInfo, name: "SchoolInfo" },
@@ -44,7 +44,7 @@ fontModule.ios.registerFont("GoodJacket-Regular.otf");
     { path: "/MatchProfSix", component: MatchProfSix, name: "MatchProfSix"},
     { path: "/MatchProfSeven", component: MatchProfSeven, name: "MatchProfSeven"},
     { path: "/MatchProfEight", component: MatchProfEight, name: "MatchProfEight"},
-    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches"},
+    { path: "/SuggestedMatches", component: SuggestedMatches, name: "SuggestedMatches", useAsDefault: true},
     { path: "/ViewProfile", component: ViewProfile, name: "ViewProfile"}
 ])
 export class AppComponent {}
