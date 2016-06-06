@@ -49,3 +49,8 @@
 .center {
     text-align: center;
 }
+.hr {
+    height: 2;
+    width: 100%;
+    background-color: #d9d9d9;
+}

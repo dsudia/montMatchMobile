@@ -25,7 +25,7 @@ export class ViewProfile {
     map: Object;
     paramMapKeys: Array<String>;
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
-        this.theirEmail = 'teacher2@test.com';
+        this.theirEmail = _userService.user.currentlyViewingProfile;
         this.theirProfile = new User();
         this.myMatchProfile = new Object();
         this.map = {

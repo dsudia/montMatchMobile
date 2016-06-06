@@ -4,7 +4,7 @@
         <StackLayout>
             <Image src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
             <Label textWrap="true" class="description" [text]="theirProfile.description"></Label>
-            <Label class="emphasis full left" [text]="'State: ' + theirProfile.state"></Label>
+            <Label class="emphasis full left" visibility="{{theirProfile.state ? 'visible' : 'collapsed'}}" [text]="'State: ' + theirProfile.state"></Label>
             <Label class="matchPercent full center" [text]="'Match Percent: ' + theirProfile.matchPercent * 100 + '%'"></Label>
             <Label class="emphasis full center" text="Based on the following"></Label>
             <StackLayout>
@@ -13,7 +13,9 @@
                     <Label class="headerText center" col="1" text="Yours"></Label>
                     <Label class="headerText center" col="2" text="Theirs"></Label>
                 </GridLayout>
-                <GridLayout *ngFor="let key of paramMapKeys" columns="120, *, *" rows="auto" class="block">
+                <StackLayout colSpan="3" row="1" class="hr">
+                </StackLayout>
+                <GridLayout *ngFor="let key of paramMapKeys" columns="120, *, *" rows="auto, auto">
                     <StackLayout class="full" [class.rowMatch]="paramMap[key].rowMatch" [class.noRowMatch]="!paramMap[key].rowMatch">
                         <Label class="emphasis full center " col="0" [text]="key"></Label>
                         <Label class="emphasis full center emphasis" [text]="paramMap[key].percent + '%'"></Label>
@@ -23,6 +25,8 @@
                     </StackLayout>
                     <StackLayout col="2" class="paramValue">
                         <Label class="param full center" *ngFor="let param of paramMap[key].theirs" [text]="param.name" [ngClass]="param.match"></Label>
+                    </StackLayout>
+                    <StackLayout colSpan="3" row="1" class="hr">
                     </StackLayout>
                 </GridLayout>
             </StackLayout>
