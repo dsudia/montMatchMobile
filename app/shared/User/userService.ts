@@ -56,7 +56,7 @@ export class UserService {
         .catch(this.handleErrors);
     }
     
-    login(loginEmail: string, loginPass: string) {
+    loginUser(loginEmail: string, loginPass: string) {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
         return this._http.post(
