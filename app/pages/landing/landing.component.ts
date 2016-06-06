@@ -4,6 +4,7 @@ import {View} from "ui/core/view";
 import {TextField} from "ui/text-field";
 import {Router} from "@angular/router-deprecated";
 import * as applicationSettings from "application-settings";
+import absoluteLayoutModule = require("ui/layouts/absolute-layout");
 
 @Component({
     selector: "landing",
@@ -28,6 +29,7 @@ export class LandingPage {
 
     goToLogin() {
         this._router.navigate(["/Login"])
+        console.log('tapped the Log In button')
     }
 
     goToSchoolInfo() {

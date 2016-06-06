@@ -1,0 +1,25 @@
+TextField {
+    background-color: white;
+    padding: 5;
+    margin: 20, 0, 10, 0;
+    width: 75%;
+    color: black;
+}
+
+#first {
+    margin: 150, 0, 0, 0;
+}
+
+.logo {
+    font-family: GoodJacket-Regular;
+    font-size: 36;
+    margin: 30;
+}
+
+button {
+    border-width: 1;
+    border-color: white;
+    padding: 5;
+    border-radius: 10;
+    margin: 15, 0, 0, 0;
+}

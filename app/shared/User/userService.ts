@@ -45,12 +45,27 @@ export class UserService {
         )
         .catch(this.handleErrors);
     }
+    
     getProfile(profileEmail: string) {
         let headers = new Headers();
         headers.append("Content-Type", "application/json");
         return this._http.get(
             Config.apiUrl + "profile/get?token=" + this.user.token + "&profile=" + profileEmail,
             { headers: headers }
+        )
+        .catch(this.handleErrors);
+    }
+    
+    loginUser(loginEmail: string, loginPass: string) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        return this._http.post(
+            Config.apiUrl + "auth/login",
+            JSON.stringify({
+                email: loginEmail,
+                password: loginPass
+            }),
+            { headers: headers}
         )
         .catch(this.handleErrors);
     }
