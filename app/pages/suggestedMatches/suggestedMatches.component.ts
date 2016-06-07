@@ -16,6 +16,8 @@ import observableArray = require("data/observable-array");
 
 export class SuggestedMatches {
     suggestedMatches: Array<Object>;
+    isLoading = false;
+    listLoaded = false;
 
     @ViewChild("container") container: ElementRef;
     
@@ -23,11 +25,14 @@ export class SuggestedMatches {
     }
     
     ngOnInit() {
+        this.isLoading = true;
         this._userService.getSuggestedMatches()
         .map(res => res.json())
         .subscribe(response => {
             this.suggestedMatches = response.suggestedMatches;
         });
+        this.isLoading = false;
+        this.listLoaded = true;
     }
     
     viewSingleProfile(email: string) {

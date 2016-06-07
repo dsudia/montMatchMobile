@@ -1,12 +1,15 @@
 <StackLayout #container>
     <Label text="Suggested Teacher Matches:"></Label>
-    <ListView [items]="suggestedMatches">
-        <template let-item="item">
-            <GridLayout rows="75" columns="auto, *, auto" (tap)="viewSingleProfile(item.email)">
-                <Image src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500"></Image>
-                <Label row="0" col="1" textWrap="true" [text]="item.displayName"></Label>
-                <Label row="0" col="2" [text]="item.perc | percent"></Label>
-            </GridLayout>
-        </template>
-    </ListView>
+    <GridLayout rows="auto, *">
+        <ListView row="0" [items]="suggestedMatches" [class.visible]="listLoaded">
+            <template let-item="item">
+                <GridLayout rows="75" columns="auto, *, auto" (tap)="viewSingleProfile(item.email)">
+                    <Image src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500"></Image>
+                    <Label row="0" col="1" textWrap="true" [text]="item.displayName"></Label>
+                    <Label row="0" col="2" [text]="item.perc | percent"></Label>
+                </GridLayout>
+            </template>
+        </ListView>
+        <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    </GridLayout>
 </StackLayout>
