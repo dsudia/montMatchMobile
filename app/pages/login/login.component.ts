@@ -14,8 +14,8 @@ import {UserService} from "../../shared/User/userService";
 
 export class LoginPage {
     user: User;
-    loginEmail: string;
-    loginPass: string;
+    loginEmail: string = 'school1@test.com';
+    loginPass: string = '1Password!';
     errorMessage: string;
     @ViewChild("container") container: ElementRef;
     

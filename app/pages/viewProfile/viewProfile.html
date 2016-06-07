@@ -3,8 +3,14 @@
     <Label visibility="{{theirProfile.displayName ? 'visible' : 'collapsed'}}" text="Viewing {{theirProfile.displayName}}'s profile"></Label>
     <ScrollView>
         <StackLayout class="bigStack">
-            <Image onload="doSomething()" src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
-            <Label textWrap="true" class="description" [text]="theirProfile.description"></Label>
+            <GridLayout visibility="{{!bigPicture ? 'visible' : 'collapsed'}}" columns="*, 3*" rows="auto, *" (tap)="togglePicture()">
+                <Image class="smallImage" col="0" src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
+                <Label col="1" textWrap="true" class="description" [text]="theirProfile.description"></Label>
+            </GridLayout>
+            <GridLayout visibility="{{bigPicture ? 'visible' : 'collapsed'}}" rows="auto, auto" (tap)="togglePicture()">
+                <Image row="0" src="{{theirProfile.image || 'https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=500&h=500'}}"></Image>
+                <Label row="1" textWrap="true" class="description" [text]="theirProfile.description"></Label>
+            </GridLayout>
             <Label class="emphasis full left" visibility="{{theirProfile.state ? 'visible' : 'collapsed'}}" [text]="'State: ' + theirProfile.state"></Label>
             <Label class="emphasis full left" visibility="{{theirProfile.email ? 'visible' : 'collapsed'}}" [text]="'Email: ' + theirProfile.email"></Label>
             <Label class="emphasis full left" text="Interested: {{theirProfile.interest ? 'Yes' : 'No'}}"></Label>
@@ -23,9 +29,9 @@
                 <StackLayout colSpan="3" row="1" class="hr">
                 </StackLayout>
                 <GridLayout class="traits" *ngFor="let key of paramMapKeys" columns="120, *, *" rows="auto, auto">
-                    <StackLayout class="full" [class.rowMatch]="paramMap[key].rowMatch" [class.noRowMatch]="!paramMap[key].rowMatch">
-                        <Label class="emphasis full center " col="0" [text]="key"></Label>
-                        <Label class="emphasis full center emphasis" [text]="paramMap[key].percent + '%'"></Label>
+                    <StackLayout col="0" class="full" [class.rowMatch]="paramMap[key].rowMatch" [class.noRowMatch]="!paramMap[key].rowMatch">
+                        <Label class="emphasis full center " col="0" [text]="key" [class.rowMatch]="paramMap[key].rowMatch" [class.noRowMatch]="!paramMap[key].rowMatch"></Label>
+                        <Label class="emphasis full center emphasis" [text]="paramMap[key].percent + '%'" [class.rowMatch]="paramMap[key].rowMatch" [class.noRowMatch]="!paramMap[key].rowMatch"></Label>
                     </StackLayout>
                     <StackLayout col="1" class="paramValue">
                         <Label class="param full center" *ngFor="let param of paramMap[key].mine" [text]="param.name" [ngClass]="param.match"></Label>
@@ -33,7 +39,7 @@
                     <StackLayout col="2" class="paramValue">
                         <Label class="param full center" *ngFor="let param of paramMap[key].theirs" [text]="param.name" [ngClass]="param.match"></Label>
                     </StackLayout>
-                    <StackLayout colSpan="3" row="1" class="hr">
+                    <StackLayout colSpan="4" row="1" class="hr">
                     </StackLayout>
                 </GridLayout>
             </StackLayout>

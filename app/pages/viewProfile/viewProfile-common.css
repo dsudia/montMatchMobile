@@ -1,28 +1,37 @@
 button {
     border-width: 1;
-    border-color: white;
+    border-color: #032443;
     padding: 5;
     border-radius: 10;
     margin: 15, 0, 0, 0;
 }
 .bigStack {
     padding: 5rem;
+    color: #000000;
+}
+.smallImage {
+    vertical-align: top;
 }
 .traits {
     background-color: white;
 }
 .match {
     color: green;
+    font-weight: bold;
 }
 
 .nomatch {
-    color: red;
+    color: #000000;
 }
 .rowMatch {
-    background-color: rgb(133, 224, 133);
+    color: #067000;
 }
 .noRowMatch {
-    background-color: rgb(255, 128, 128);
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.rowFill {
+    background-color: #067000;
 }
 .description {
     font-size: 18;

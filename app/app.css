@@ -2,12 +2,16 @@
 label,
 stack-layout {
     horizontal-align: center;
-    color: white;
+    color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 Button {
     font-size: 18rem;
+}
+ActionBar {
+  background-color: #032443;
+  color: white;
 }
 
 .title {
@@ -23,5 +27,5 @@ Button {
 }
 
 page {
-    background-color: midnightblue;
+    background-color: #f2f2f2;
 }

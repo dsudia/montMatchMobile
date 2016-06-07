@@ -4,9 +4,10 @@ GridLayout {
 
 button {
     border-width: 1;
-    border-color: white;
+    border-color: #032443;
     padding: 5;
     border-radius: 10;
+    color: #032443;
 }
 
 .logo {

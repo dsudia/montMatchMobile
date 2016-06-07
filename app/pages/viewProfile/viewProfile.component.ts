@@ -8,7 +8,9 @@ import {Label} from "ui/label";
 import {GridLayout} from "ui/layouts/grid-layout";
 import {UserService} from "../../shared/User/userService";
 import {MatchParams} from "./MatchParams";
+var LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
 import observableArray = require("data/observable-array");
+import dialogs = require("ui/dialogs");
 
 @Component({
     selector: "ViewProfile",
@@ -26,8 +28,12 @@ export class ViewProfile {
     paramMapKeys: Array<String>;
     message: string;
     messageVisible: boolean = false;
+    loader;
+    bigPicture: boolean = false;
     
     constructor(private _router:Router, private page: Page, private _userService: UserService) {
+        this.loader = new LoadingIndicator();
+        this.loader.show();
         this.theirEmail = _userService.user.currentlyViewingProfile;
         this.theirProfile = new User();
         this.myMatchProfile = new Object();
@@ -113,7 +119,11 @@ export class ViewProfile {
         this.getProfile();
     }
     
-    getProfile() {
+    togglePicture() {
+        this.bigPicture = !this.bigPicture;
+    }
+    
+    getProfile(callback? : () => void) {
         this._userService.getProfile(this.theirEmail)
         .map(res => res.json())
         .subscribe(response => {
@@ -132,42 +142,57 @@ export class ViewProfile {
             this.paramMapKeys.forEach(key => {
                 this.paramMapper(key);
             })
-            
+            this.loader.hide()
+            if (callback) {
+                callback();
+            }
         }, error => {
-            console.log('Something went wrong!');
+            alert('Something went wrong!');
         })
     }
-    doSomething() {
-        console.log('Loaded!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        
-    }
     showInterest() {
-       this._userService.showInterest()
-       .map(res =>  res.json())
-       .subscribe(result => {
-           this.displayMessage(result.message, 2000);
-           this.getProfile();
-       }, error => {
-           alert('Something went wrong!');
+        this.loader.show();
+        this._userService.showInterest()
+        .map(res =>  res.json())
+        .subscribe(result => {
+            this.getProfile(() => {
+                this.displayMessage(result.message, 2000)
+            });
+        }, error => {
+            this.loader.hide();
+            alert('Something went wrong!');
+            
        })
     }
     removeInterest() {
-       this._userService.removeInterest()
-       .map(res =>  res.json())
-       .subscribe(result => {
-           this.displayMessage(result.message, 2000);
-           this.getProfile();
-       }, error => {
-           alert('Something went wrong!');
-       })
+        this.loader.show();
+        this._userService.removeInterest()
+        .map(res =>  res.json())
+        .subscribe(result => {
+            this.getProfile(() => {
+                this.displayMessage(result.message, 2000)
+            });
+        }, error => {
+            this.loader.hide();
+            alert('Something went wrong!');
+            
+        })
     }
     
     displayMessage(message: string, milliseconds: number) {
-        this.message = message;
-        this.messageVisible = true;
-        setTimeout(() => {
-            this.messageVisible = false;
-        }, milliseconds)
+        
+        dialogs.alert({
+            title: "Message",
+            message: message,
+            okButtonText: "OK"
+        })
+        .then(() => {
+        });
+        // this.message = message;
+        // this.messageVisible = true;
+        // setTimeout(() => {
+        //     this.messageVisible = false;
+        // }, milliseconds)
     }
     
     /**
