@@ -29,7 +29,9 @@ export class SuggestedMatches {
         this._userService.getSuggestedMatches()
         .map(res => res.json())
         .subscribe(response => {
-            this.suggestedMatches = response.suggestedMatches;
+            this.suggestedMatches = response.suggestedMatches.sort(function(a, b) {
+                return b.perc - a.perc;    
+            });
         });
         this.isLoading = false;
         this.listLoaded = true;

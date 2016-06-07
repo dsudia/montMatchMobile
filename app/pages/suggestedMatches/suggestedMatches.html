@@ -5,7 +5,7 @@
             <template let-item="item">
                 <GridLayout rows="75" columns="auto, *, auto" (tap)="viewSingleProfile(item.email)">
                     <Image [src]="item.avatarUrl"></Image>
-                    <Label row="0" col="1" textWrap="true" [text]="item.displayName"></Label>
+                    <Label row="0" col="1" textWrap="true" text="Teacher in {{item.state}}"></Label>
                     <Label row="0" col="2" [text]="item.perc | percent"></Label>
                 </GridLayout>
             </template>

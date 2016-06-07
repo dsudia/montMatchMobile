@@ -7,6 +7,10 @@ ListView {
     margin: 10rem;
 }
 
+ListView {
+    height: 90%;
+}
+
 GridLayout {
     display: block;
     padding: 5rem;
