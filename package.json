@@ -25,7 +25,6 @@
     "email-validator": "^1.0.4",
     "nativescript-angular": "0.1.1",
     "nativescript-background-http": "0.0.3",
-    "nativescript-dialog": "0.0.7",
     "nativescript-loading-indicator": "^2.0.1",
     "nativescript-unit-test-runner": "^0.3.3",
     "tns-core-modules": "^2.0.0"
