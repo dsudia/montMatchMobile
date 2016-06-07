@@ -8,6 +8,7 @@ export class User {
     confPassword: string;
     displayName: string;
     // Rest of the profile
+    lastName: string;
     image: string;
     state: string;
     description: string;

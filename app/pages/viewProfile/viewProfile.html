@@ -1,6 +1,6 @@
 <StackLayout #container>
     <Label visibility="{{theirProfile.displayName ? 'collapsed' : 'visible'}}" text="View Profile"></Label>
-    <Label visibility="{{theirProfile.displayName ? 'visible' : 'collapsed'}}" text="Viewing {{theirProfile.displayName}}'s profile"></Label>
+    <Label visibility="{{theirProfile.displayName ? 'visible' : 'collapsed'}}" text="Viewing {{theirProfile.displayName}} {{theirProfile.lastName}}'s profile"></Label>
     <ScrollView>
         <StackLayout class="bigStack">
             <GridLayout visibility="{{!bigPicture ? 'visible' : 'collapsed'}}" columns="*, 3*" rows="auto, *" (tap)="togglePicture()">

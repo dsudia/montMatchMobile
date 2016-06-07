@@ -128,6 +128,8 @@ export class ViewProfile {
         .map(res => res.json())
         .subscribe(response => {
             this.theirProfile.displayName = response.profile.displayName;
+            this.theirProfile.lastName = response.profile.lastName;
+            console.log(this.theirProfile.lastName);
             this.theirProfile.image = response.profile.avatarUrl;
             this.theirProfile.description = response.profile.description;
             this.theirProfile.state = response.profile.state;
